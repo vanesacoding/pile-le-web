@@ -59,6 +59,10 @@ window.App = (function () {
       '</div>';
   }
 
+  function navBarHtml(title) {
+    return '<div class="nav-bar"><div class="nav-back" data-act="go-back"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>返回</div><div class="nav-title">' + esc(title) + '</div></div>';
+  }
+
   function galleryHtml(gallery) {
     if (!gallery || !gallery.length) return '';
     const n = gallery.length;
@@ -530,7 +534,7 @@ window.App = (function () {
     const it = res.item;
     const gallery = (it.imageFileIDs && it.imageFileIDs.length) ? it.imageFileIDs.slice(0, 4) : (it.imageFileID ? [it.imageFileID] : []);
 
-    pageEl.innerHTML = '<div class="page">' +
+    pageEl.innerHTML = '<div class="page">' + navBarHtml('审批单') +
       '<div class="wrap">' +
       '<div class="block-sage hero">' +
       '<div class="doc-title sage-title">' + esc(it.title) + '</div>' +
@@ -619,7 +623,7 @@ window.App = (function () {
       dockHtml = '<div class="dock"><div class="btn-ghost" data-act="go-result" data-id="' + it._id + '">去处理这单</div></div>';
     }
 
-    pageEl.innerHTML = '<div class="page approve-page">' +
+    pageEl.innerHTML = '<div class="page approve-page">' + navBarHtml('审批') +
       '<div class="head"><div class="brand display">批 了 么</div>' + askHtml + '</div>' +
       '<div class="wrap">' +
       '<div class="block-sage hero">' +
@@ -687,7 +691,7 @@ window.App = (function () {
         '</div>';
     }
 
-    pageEl.innerHTML = '<div class="page">' +
+    pageEl.innerHTML = '<div class="page">' + navBarHtml('结果') +
       '<div class="wrap">' +
       '<div class="block-sage hero">' +
       ownerHtml +
@@ -751,7 +755,7 @@ window.App = (function () {
         '<div class="dock"><div class="btn-ghost" data-act="go-list">回到列表</div></div>';
     }
 
-    pageEl.innerHTML = '<div class="page cooling">' + body + '</div>';
+    pageEl.innerHTML = '<div class="page cooling">' + (it ? navBarHtml('冷静复盘') : '') + body + '</div>';
 
     startClock('cooling-clock', function () {
       const d = new Date();
@@ -820,6 +824,7 @@ window.App = (function () {
       case 'go-apply': location.hash = '#/apply'; break;
       case 'go-list': location.hash = '#/list'; break;
       case 'go-result': location.hash = '#/result/' + data('id'); break;
+      case 'go-back': history.back(); break;
 
       // ---- 首页 ----
       case 'list-mode':

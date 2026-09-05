@@ -928,5 +928,39 @@ body {
 
 .ob-foot { padding: 12px 20px 14px; }
 
+/* ---------- 返回栏 ---------- */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(245, 242, 234, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px 8px 4px 0;
+}
+.nav-back:active { opacity: 0.6; }
+.nav-back svg { width: 18px; height: 18px; stroke: var(--ink-soft); }
+.nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
 /* 通用隐藏 */
 .hidden { display: none !important; }
