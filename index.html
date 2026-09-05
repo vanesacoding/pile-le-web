@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>批了么 · 网页预览版</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 手机壳：375px 宽居中，模拟小程序屏幕，rpx 按 ÷2 还原成 px -->
+  <div class="device">
+    <div id="app">
+      <!-- 页面容器：JS 动态渲染当前页面 -->
+      <div id="page"></div>
+      <!-- 底部自定义 tabBar（首页 / 法庭 / 我的） -->
+      <nav id="tabbar" class="tabbar">
+        <div class="tabbar-item" data-tab="list">
+          <svg class="tabbar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5L12 5l8 6.5"/><path d="M6 10.5V19h12v-8.5"/><path d="M10 19v-5h4v5"/></svg>
+          <span class="tabbar-lb">首页</span>
+        </div>
+        <div class="tabbar-item" data-tab="pool">
+          <svg class="tabbar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"/><path d="M5 8h14"/><path d="M5 8l-2.5 6a3 3 0 0 0 5 0L5 8z"/><path d="M19 8l-2.5 6a3 3 0 0 0 5 0L19 8z"/><path d="M8 20h8"/></svg>
+          <span class="tabbar-lb">法庭</span>
+        </div>
+        <div class="tabbar-item" data-tab="me">
+          <svg class="tabbar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+          <span class="tabbar-lb">我的</span>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/util.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
